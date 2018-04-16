@@ -1,0 +1,36 @@
+
+sudo apt-get install python-pip
+
+pip install paho-mqtt
+
+sudo apt-get install git
+
+git clone https://github.com/eclipse/paho.mqtt.python.git
+cd paho.mqtt.python
+
+python setup.py install
+# truy nhap quyen root neu install ko thanh cong.
+
+cd ..  // tro ve thu muc goc /home/<user>$
+
+git clone https://github.com/kiranshashiny/python-cloudmqtt-example.git
+
+cd python-cloudmqtt-example
+
+chmod a+x publish.py
+
+nano publish.py
+
+# bo phan code 'publish without payload' va msgs (mutiple publish)
+# sua topic thanh "/raspian/results"
+#	Qos: 2
+#	retain : true
+#	hostname : "m14.cloudmqtt.com"
+#	port : 16954
+#	usernam: llddsiwh
+#	pass: yWnocLkvH4VE
+# sau do Ctrl+X -> y -> Enter
+
+python publish.py
+
+# ko bao loi la oke !! :)))
