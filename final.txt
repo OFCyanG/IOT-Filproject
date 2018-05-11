@@ -1,0 +1,32 @@
+#!/usr/bin/python
+  
+# Copyright (c) 2014 Roger Light <roger@atchoo.org>
+#
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Distribution License v1.0
+# which accompanies this distribution. 
+#
+# The Eclipse Distribution License is available at 
+#   http://www.eclipse.org/org/documents/edl-v10.php.
+#
+# Contributors:
+#    Roger Light - initial implementation
+  
+# This shows an example of using the publish.single helper function.
+
+#http://nullege.com/codes/show/src%40p%40a%40paho-mqtt-0.9%40examples%40pub-single.py/32/paho.mqtt.publish.single/python
+  
+import sys
+import paho.mqtt.publish as publish
+import time
+### Single payload.
+#without payload.  
+#publish.single("/fromlaptop", payload=None, qos=0, retain=False, hostname="m14.cloudmqtt.com",
+#    port=16954, client_id="", keepalive=60, will=None, auth={'username':"llddsiwh", 'password':"yWnocLkvH4VE"}, tls=None)
+msg = "{\"value\":{\"light\":24,\"temperature\":70,\"humidity\":150,\"evaporation\":100,\"action\":0}"
+#with payload
+while True:
+        publish.single("/raspian/results", payload=msg, qos=2, retain=True, hostname="m14.cloudmqtt.com",port=16954, client_id="",keepalive=60, will=None, auth={'username':"llddsiwh", 'password':"yWnocLkvH4VE"}, tls=None)
+        time.sleep(300)
+
+
